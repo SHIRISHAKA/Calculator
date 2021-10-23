@@ -1,0 +1,126 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+
+}
+.main{
+  min-height: 90vh;
+  width: 100vw;
+  background-image: url("bgimage.jpeg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+  color: #6679e0;
+}
+.menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.menu button{
+  width: 25vw;
+  height: 7vh;
+  margin: 1.5vh;
+  border-radius: 20px;
+  background: #6679e0;
+  font-size: 1.5rem;
+  border: 3px solid #6679e0;
+  color: white;
+}
+.menu button:hover{
+  background: white;
+  font-size: 1.5rem;
+  border: 3px solid black;
+  color: black;
+}
+
+.main h1{
+  display: none;
+}
+.calculator{
+  margin: 1.5vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calculator input{
+  margin: 0.2rem;
+  height: 2.5rem;
+  width: 25vw;
+  text-align: center;
+  border-radius: 15px;
+}
+.grade{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.grade h2{
+  color:#6679e0;
+}
+.calculator button{
+  width: 10vw;
+  height: 5vh;
+  margin: 1.5vh;
+  border-radius: 20px;
+  background: #6679e0;
+  font-size: 1.5rem;
+  border: 3px solid #6679e0;
+  color: white;
+}
+.calculator button:hover{
+  background: white;
+  font-size: 1.5rem;
+  border: 3px solid black;
+  color: black;
+}
+#cal,#print{
+  display: none;
+}
+
+
+footer{
+  height: 10vh;
+  width: 100vw;
+  font-family: sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: grey;
+}
+@media screen and (max-width:1024px){
+  html{
+    font-size: 80%;
+  }
+  .menu button{
+    width: 30vw;
+    }
+}
+@media screen and (max-width:786px) {
+html{
+  font-size: 60%;
+}
+.menu button{
+  width: 70vw;
+  }
+.calculator input{
+  margin: 0.2rem;
+  height: 4rem;
+  width: 70vw;
+  }
+  .calculator button{
+    width: 50vw;
+      }
+  .grade h2{
+        font-size: 2rem;
+  }
+}

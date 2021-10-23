@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SGPA calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <<link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class="main">
+      <h1><q>SGPA Calculator</q></h1>
+
+      <div class="menu">
+        <button id="sgpa" type="button" name="button">SGPA</button>
+        <button id="cgpa" type="button" name="button">CGPA</button>
+      </div>
+      <div class="calculator">
+        <input type="number" placeholder="Enter the number of subjects">
+        <div class="grade">
+
+        </div>
+        <button id="next" type="button" name="button">Next-></button>
+        <button id="cal" type="button" name="button">Calculate</button>
+        <button id="print" type="button" name="button">Print</button>
+      </div>
+
+    </div>
+
+    <footer id="Footnotes">
+     Made by- Shirisha K A and Ramya M R
+    </footer>
+    <script type="text/javascript">
+      sgpa_btn=document.querySelector("#sgpa")
+      cgpa_btn=document.querySelector("#cgpa")
+      heading=document.querySelector(".main h1")
+      input=document.querySelector(".calculator input")
+      next_btn=document.querySelector("#next")
+      cal_btn=document.querySelector("#cal")
+      cal=document.querySelector(".calculator")
+      grade=document.querySelector(".grade")
+      print=document.querySelector("#print")
+      const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
+      let x=0;
+      flag=0;
+      sgpa_btn.addEventListener("click",()=>{
+        input.value='';
+        heading.innerText="SGPA Calculator";
+        heading.style.display="block";
+        document.querySelector(".menu").style.flexDirection="row";
+        cal.style.display="flex";
+        input.placeholder="Enter the number of subjects";
+        grade.innerHTML='';
+        next_btn.style.display="block";
+        cal_btn.style.display="none";
+        print.style.display="none";
+        flag=1
+      });
+      cgpa_btn.addEventListener("click",()=>{
+        input.value='';
+        heading.innerText="CGPA Calculator";
+        heading.style.display="block";
+        document.querySelector(".menu").style.flexDirection="row";
+        cal.style.display="flex";
+        input.placeholder="Enter the number of semesters";
+        grade.innerHTML='';
+        next_btn.style.display="block";
+        cal_btn.style.display="none";
+        print.style.display="none";
+        flag=2
+      });
+      next_btn.addEventListener("click",()=>{
+        x=input.value;
+        grade.style.display="flex";
+        if(x.length==0)
+        {alert("ENTER A Value");}
+        else {
+          for (let i=1;i<=x;i++){
+            gradePoint = document.createElement('input');
+            gradePoint.placeholder= `Grade point ${i}`;
+            gradePoint.setAttribute('id', i);
+            grade.appendChild(gradePoint);
+        }
+      }
+      next_btn.style.display="none";
+      cal_btn.style.display="block";
+      });
+      cal_btn.addEventListener("click",()=>{
+      score=[]
+      for(i of document.querySelectorAll(".grade input")){
+        score.push(parseInt(i.value));
+      }
+      grade.innerHTML='';
+      for(let i=0;i<score.length;i++){
+        output=document.createElement('h2');
+        output.innerText=`Grade point ${i+1}: ${score[i]}`;
+        grade.appendChild(output);
+      }
+      if(flag==1){
+        output=document.createElement('h2');
+        output.innerText=`SGPA is: ${arrAvg(score)}`;
+        grade.appendChild(output);
+      }
+      else if (flag==2) {
+        output=document.createElement('h2');
+        output.innerText=`CGPA is: ${arrAvg(score)}`;
+        grade.appendChild(output);
+      }
+      print.style.display="block";
+      });
+      print.addEventListener("click",()=>{
+        var printContents = grade.innerHTML;
+        w=window.open();
+        w.document.write(printContents);
+        w.print();
+        w.close();
+        next_btn.style.display="block";
+        cal_btn.style.display="none";
+        print.style.display="none";
+      });
+
+    </script>
+  </body>
+</html>
